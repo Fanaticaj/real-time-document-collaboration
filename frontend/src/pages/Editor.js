@@ -1,8 +1,5 @@
-// src/pages/Editor.js
-
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import '../App.css'; // Keep styling if needed
 
 const socket = io('http://localhost:5000');
 
@@ -41,24 +38,46 @@ function Editor() {
     };
 
     return (
-        <div className="Editor">
-            <h1>Real-time Collaborative Editor</h1>
-            <div className="controls">
-                <button onClick={() => toggleStyle(bold, setBold, 'bold')}>BOLD</button>
-                <button onClick={() => toggleStyle(italic, setItalic, 'italic')}>ITALIC</button>
-                <button onClick={() => toggleStyle(underline, setUnderline, 'underline')}>UNDERLINE</button>
+        <div className="container mt-5">
+            <div className="card shadow p-4">
+                <h2 className="text-center">Real-time Collaborative Editor</h2>
+
+                {/* Formatting Controls */}
+                <div className="d-flex justify-content-center gap-2 mt-3 mb-3">
+                    <button
+                        className={`btn ${bold ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleStyle(bold, setBold, 'bold')}
+                    >
+                        <b>B</b>
+                    </button>
+                    <button
+                        className={`btn ${italic ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleStyle(italic, setItalic, 'italic')}
+                    >
+                        <i>I</i>
+                    </button>
+                    <button
+                        className={`btn ${underline ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleStyle(underline, setUnderline, 'underline')}
+                    >
+                        <u>U</u>
+                    </button>
+                </div>
+
+                {/* Editor Text Area */}
+                <textarea
+                    className="form-control"
+                    value={content}
+                    onChange={handleEdit}
+                    rows={10}
+                    placeholder="Start typing..."
+                    style={{
+                        fontWeight: bold ? 'bold' : 'normal',
+                        fontStyle: italic ? 'italic' : 'normal',
+                        textDecoration: underline ? 'underline' : 'none'
+                    }}
+                ></textarea>
             </div>
-            <textarea
-                value={content}
-                onChange={handleEdit}
-                rows={10}
-                cols={50}
-                style={{
-                    fontWeight: bold ? 'bold' : 'normal',
-                    fontStyle: italic ? 'italic' : 'normal',
-                    textDecoration: underline ? 'underline' : 'none'
-                }}
-            />
         </div>
     );
 }
