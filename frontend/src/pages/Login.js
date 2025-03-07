@@ -18,7 +18,7 @@ function Login() {
       setTimeout(() => {
         setShowToast(false); // Hide toast after 3 seconds
         navigate('/editor'); // Redirect after login
-      }, 3000);
+      }, 1500);
     } else {
       setError("Please enter an email and password.");
     }
