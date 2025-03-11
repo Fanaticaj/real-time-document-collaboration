@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [showToast, setShowToast] = useState(false); // State for toast notification
   const navigate = useNavigate(); // React Router navigation
@@ -12,12 +12,12 @@ function Login() {
     e.preventDefault();
 
     if (email && password) {
-      console.log('Login successful:', email);
+      console.log("Login successful:", email);
       setShowToast(true); // Show toast notification
 
       setTimeout(() => {
         setShowToast(false); // Hide toast after 3 seconds
-        navigate('/editor'); // Redirect after login
+        navigate("/editor"); // Redirect after login
       }, 1500);
     } else {
       setError("Please enter an email and password.");
@@ -26,7 +26,10 @@ function Login() {
 
   return (
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
+      <div
+        className="card shadow p-4"
+        style={{ maxWidth: "400px", width: "100%" }}
+      >
         <h2 className="text-center mb-4">Sign In</h2>
 
         {error && <div className="alert alert-danger text-center">{error}</div>}
@@ -56,22 +59,37 @@ function Login() {
 
           <div className="d-flex justify-content-between mb-3">
             <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="rememberMe" />
-              <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="rememberMe"
+              />
+              <label className="form-check-label" htmlFor="rememberMe">
+                Remember me
+              </label>
             </div>
-            <a href="#!" className="text-primary">Forgot password?</a>
+            <a href="#!" className="text-primary">
+              Forgot password?
+            </a>
           </div>
 
-          <button type="submit" className="btn btn-primary w-100">Sign in</button>
+          <button type="submit" className="btn btn-primary w-100">
+            Sign in
+          </button>
         </form>
 
         <div className="text-center mt-3">
-          <p>Not a member? <a href="/register" className="text-primary">Register</a></p>
+          <p>
+            Not a member?{" "}
+            <a href="/register" className="text-primary">
+              Register
+            </a>
+          </p>
           <p>or sign in with:</p>
-          
+
           <div className="d-flex justify-content-center gap-3">
             <button className="btn btn-outline-secondary">
-              <i className="fab fa-google"></i> Google
+              <i className="fab fa-google"></i> Gooogle
             </button>
             <button className="btn btn-outline-secondary">
               <i className="fab fa-github"></i> GitHub
@@ -83,7 +101,10 @@ function Login() {
       {/* Bootstrap Toast Notification */}
       {showToast && (
         <div className="toast-container position-fixed top-0 end-0 p-3">
-          <div className="toast show align-items-center text-bg-success border-0" role="alert">
+          <div
+            className="toast show align-items-center text-bg-success border-0"
+            role="alert"
+          >
             <div className="d-flex">
               <div className="toast-body">Login Successful! Redirecting...</div>
               <button
