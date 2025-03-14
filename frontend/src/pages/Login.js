@@ -7,6 +7,15 @@ function Login() {
   const [error, setError] = useState(null);
   const [showToast, setShowToast] = useState(false); // State for toast notification
   const navigate = useNavigate(); // React Router navigation
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://your-backend-url.com";
+
+  const handleGoogleSignIn = () => {
+    window.location.href = `${backendUrl}/auth/google`;
+  };
+
+  const handleGitHubSignIn = () => {
+    window.location.href = `${backendUrl}/auth/github`;
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -88,10 +97,10 @@ function Login() {
           <p>or sign in with:</p>
 
           <div className="d-flex justify-content-center gap-3">
-            <button className="btn btn-outline-secondary">
-              <i className="fab fa-google"></i> Gooogle
+            <button className="btn btn-outline-secondary" onClick={handleGoogleSignIn}> 
+              <i className="fab fa-google"></i> Google
             </button>
-            <button className="btn btn-outline-secondary">
+            <button className="btn btn-outline-secondary" onClick={handleGitHubSignIn}>
               <i className="fab fa-github"></i> GitHub
             </button>
           </div>
