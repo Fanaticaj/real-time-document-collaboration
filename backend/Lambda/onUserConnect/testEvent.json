@@ -1,0 +1,6 @@
+{
+    "queryStringParameters": {
+      "connectionId": "testConnectionId",
+      "docId": "testDocId"
+    }
+  }

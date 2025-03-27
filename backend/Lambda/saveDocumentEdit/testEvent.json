@@ -1,0 +1,8 @@
+{
+    "userId": "user123",
+    "documentId": "doc456",
+    "content": "This is the updated document content.",
+    "headers": {
+      "Authorization": "Bearer some-valid-cognito-token"
+    }
+  }

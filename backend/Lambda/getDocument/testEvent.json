@@ -1,0 +1,6 @@
+{
+    "documentId": "doc123",
+    "identity": {
+      "groups": ["readers", "writers"]
+    }
+  }
